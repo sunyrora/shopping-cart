@@ -4,7 +4,7 @@
     background: #fff;
     /* cursor: pointer; */
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
-    margin: 8px auto;
+    margin: 8px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;   
@@ -28,6 +28,7 @@
 }
 
 .info__description {
+    height: 100px;
     font-size: 0.8rem;
     overflow: hidden;
 }
@@ -55,13 +56,13 @@
 
 @media (max-width: 1232px) {
     .product {
-        width: calc((100vw / 3) - 10px);
+        width: calc((100vw / 3) - 26px);
     }
 }
 
 @media (max-width: 950px) {
     .product {
-        width: calc((100vw / 2) - 10px);
+        width: calc((100vw / 2) - 26px);
     }
 }
 
