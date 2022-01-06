@@ -6,11 +6,12 @@ import { Link, useNavigate } from 'react-router-dom';
 import CartItem from '../components/CartItem';
 
 // Actions
-import { addToCart, removeFromCart } from '../redux/actions/cartActions';
+import { addToCart, removeFromCart, getCartItemCount } from '../redux/actions/cartActions';
 
 
 const CartScreen = () => {
-    const { cartItems } = useSelector(state => state.cart);
+    const cart = useSelector(state => state.cart);
+    const { cartItems }  = cart;
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -22,14 +23,6 @@ const CartScreen = () => {
     const qtyChangeHandler = (id, qty) => {
         dispatch(addToCart(id, qty));
     }
-
-    const getCartItemCount = () => (
-        cartItems.reduce((qty, item) => qty + Number(item.qty), 0)
-    );
-
-    const getCartSubTotal = () => (
-        cartItems.reduce((price, item) => (price + (item.price*item.qty)), 0)
-    )
 
     return (
         <div className="cartscreen">
@@ -50,8 +43,8 @@ const CartScreen = () => {
             </div>
             <div className="cartscreen__right">
             <div className="cartscreen__info">
-                <p>Subtotal { getCartItemCount() } items</p>
-                <p>${ getCartSubTotal() }</p>
+                <p>Subtotal { cart.itemCount } items</p>
+                <p>${ cart.subTotal }</p>
             </div>
             <div><button>Proceed to Checkout</button></div>
         </div>
