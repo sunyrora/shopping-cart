@@ -5,7 +5,7 @@ const PRODUCTS_INITIAL_STATE = {
 }
 
 export const getProductsReducer = (state = PRODUCTS_INITIAL_STATE, action ) => {
-    switch(action.types) {
+    switch(action.type) {
         case actionTypes.GET_PRODUCTS_REQUEST:
             return {
                 loading: true,
@@ -30,7 +30,7 @@ const PRODUCT_DETAIL_INITIAL_STATE = {
     product: {}
 };
 export const getProductDetailsReducer = (state=PRODUCT_DETAIL_INITIAL_STATE, action) => {
-    switch(action.types) {
+    switch(action.type) {
         case actionTypes.GET_PRODUCT_DETAILS_REQUEST:
             return {
                 loading: true,
