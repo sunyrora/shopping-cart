@@ -14,8 +14,21 @@ const reducers = combineReducers({
 
 const middleware = [thunk];
 
+// To make cart items stay when refresh page
+const cartFromLocalStorage = localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart")) : [];
+
+const INITIAL_STATE = {
+    cart: {
+        itemCount: 0,
+        subTotal: 0,
+        cartItems: cartFromLocalStorage
+    }
+};
+
+
 const store = createStore(
     reducers,
+    INITIAL_STATE,
     composeWithDevTools(applyMiddleware(...middleware))
 );
 
