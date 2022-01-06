@@ -26,7 +26,7 @@ export const getProductsDetails = (id) => async (dispatch, getState) => {
     try {
         dispatch({type: actionTypes.GET_PRODUCT_DETAILS_REQUEST});
 
-        const { data } = await axios.get('/api/products/${id}');
+        const { data } = await axios.get(`/api/products/${id}`);
 
         dispatch({
             type: actionTypes.GET_PRODUCT_DETAILS_SUCCESS,

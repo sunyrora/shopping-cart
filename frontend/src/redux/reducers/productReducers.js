@@ -46,9 +46,7 @@ export const getProductDetailsReducer = (state=PRODUCT_DETAIL_INITIAL_STATE, act
                 error: action.payload,
             };
         case actionTypes.GET_PRODUCT_DETAILS_RESET:
-            return {
-                product: {},
-            };
+            return PRODUCT_DETAIL_INITIAL_STATE;
         default:
             return state;
     }

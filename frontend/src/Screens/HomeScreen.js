@@ -9,9 +9,9 @@ import Product from '../components/Product';
 const HomeScreen = () => {
 
     const dispatch = useDispatch();
-    const getProductsReducer = useSelector(state => state.getProductsReducer);
+    const listProducts = useSelector(state => state.listProducts);
 
-    const { products, loading, error } = getProductsReducer;
+    const { products, loading, error } = listProducts;
 
     useEffect(() => {
         dispatch(getProducts());
@@ -28,7 +28,7 @@ const HomeScreen = () => {
                     <h2>{error}</h2>
                     ) : (
                         products.map(product => (
-                        <Product product={product} />
+                        <Product key={product._id} product={product} />
                     )))
                 }
             </div>
