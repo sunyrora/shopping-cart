@@ -15,17 +15,22 @@
     cursor: pointer;
 }
 
+.navbar__logo > h2 > a {
+    text-decoration: none;
+    color: #f4f4f4;
+}
+
 .navbar__links {
     display: flex;
     list-style: none;
     align-items: center;
 }
 
-.navbar__links > li {
+.navbar__links  li {
     padding-left: 5rem;
 }
 
-.navbar__links > li > a {
+.navbar__links  li  a {
     text-decoration: none;
     color: #f4f4f4;
     font-size: 1.2rem;
@@ -34,10 +39,20 @@
 
 }
 
-.navbar__links > li > a > span {
+.navbar__links  li  a  span {
     display: flex;
     align-items: center;
     margin-left: 8px;
+}
+
+.navbar__links__full {
+    display: flex;
+    align-items: center;
+}
+
+.navbar__links__mini {
+    display: none;
+    align-items: center;
 }
 
 .cart__link {
@@ -85,8 +100,16 @@
 }
 
 @media (max-width: 960px) {
-    .navbar__links {
+    .navbar__links__full {
         display: none;
+    }
+
+    .navbar__links__mini {
+        display: flex;
+    }
+
+    .navbar__links__mini * {
+        font-size: 1rem;
     }
 
     .hamberger__menu {
@@ -97,5 +120,11 @@
 @media (max-width: 500px) {
     .navbar__logo h2 {
         font-size: 1rem;
+    }
+}
+
+@media (max-width: 370px) {
+    .navbar__links__mini {
+        display: none;
     }
 }
